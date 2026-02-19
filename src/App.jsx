@@ -1,10 +1,10 @@
 import React from 'react'
-import CadastrarMedico from "./pages/CadastrarMedico"
+import Medicos from "./pages/Medicos"
 
 const App = () => {
   return (
     <div>
-      <CadastrarMedico/>
+      <Medicos/>
     </div>
   )
 }
