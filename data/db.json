@@ -1,0 +1,208 @@
+{
+  "medicos": [
+  {
+    "id": 1,
+    "nome": "Dr. Carlos Henrique Souza",
+    "especialidade": "Cardiologia",
+    "crm": "123456-CE",
+    "telefone": "(85) 98888-1111",
+    "email": "carlos.souza@clinicavida.com"
+  },
+  {
+    "id": 2,
+    "nome": "Dra. Mariana Alves Costa",
+    "especialidade": "Pediatria",
+    "crm": "234567-CE",
+    "telefone": "(85) 97777-2222",
+    "email": "mariana.costa@clinicavida.com"
+  },
+  {
+    "id": 3,
+    "nome": "Dr. João Victor Mendes",
+    "especialidade": "Ortopedia",
+    "crm": "345678-CE",
+    "telefone": "(85) 96666-3333",
+    "email": "joao.mendes@clinicavida.com"
+  },
+  {
+    "id": 4,
+    "nome": "Dra. Fernanda Ribeiro Lima",
+    "especialidade": "Ginecologia",
+    "crm": "456789-CE",
+    "telefone": "(85) 95555-4444",
+    "email": "fernanda.lima@clinicavida.com"
+  },
+  {
+    "id": 5,
+    "nome": "Dr. Lucas Matos Pereira",
+    "especialidade": "Dermatologia",
+    "crm": "567890-CE",
+    "telefone": "(85) 94444-5555",
+    "email": "lucas.pereira@clinicavida.com"
+  },
+  {
+    "id": 6,
+    "nome": "Dra. Ana Beatriz Rocha",
+    "especialidade": "Neurologia",
+    "crm": "678901-CE",
+    "telefone": "(85) 93333-6666",
+    "email": "ana.rocha@clinicavida.com"
+  }
+],
+  "pacientes": [
+  {
+    "id": 1,
+    "nome": "Rafael Oliveira",
+    "dataNascimento": "12/05/1998",
+    "cpf": "123.456.789-00",
+    "telefone": "(85) 99999-1111",
+    "email": "rafael@email.com"
+  },
+  {
+    "id": 2,
+    "nome": "Juliana Martins",
+    "dataNascimento": "21/08/2001",
+    "cpf": "234.567.890-11",
+    "telefone": "(85) 98888-2222",
+    "email": "juliana@email.com"
+  },
+  {
+    "id": 3,
+    "nome": "Pedro Henrique Silva",
+    "dataNascimento": "10/02/1987",
+    "cpf": "345.678.901-22",
+    "telefone": "(85) 97777-3333",
+    "email": "pedro@email.com"
+  },
+  {
+    "id": 4,
+    "nome": "Maria Souza",
+    "dataNascimento": "30/11/1995",
+    "cpf": "456.789.012-33",
+    "telefone": "(85) 96666-4444",
+    "email": "maria@email.com"
+  },
+  {
+    "id": 5,
+    "nome": "Lucas Andrade",
+    "dataNascimento": "14/07/1979",
+    "cpf": "567.890.123-44",
+    "telefone": "(85) 95555-5555",
+    "email": "lucas@email.com"
+  },
+  {
+    "id": 6,
+    "nome": "Ana Clara Costa",
+    "dataNascimento": "19/01/2003",
+    "cpf": "678.901.234-55",
+    "telefone": "(85) 94444-6666",
+    "email": "ana@email.com"
+  }
+],
+  "exames": [
+  {
+    "id": 1,
+    "pacienteId": 1,
+    "tipo": "Hemograma",
+    "data": "2026-02-15",
+    "resultado": "Normal",
+    "status": "Concluído"
+  },
+  {
+    "id": 2,
+    "pacienteId": 2,
+    "tipo": "Raio-X",
+    "data": "2026-02-18",
+    "resultado": "",
+    "status": "Pendente"
+  },
+  {
+    "id": 3,
+    "pacienteId": 3,
+    "tipo": "Eletrocardiograma",
+    "data": "2026-02-20",
+    "resultado": "Alteração leve",
+    "status": "Concluído"
+  },
+  {
+    "id": 4,
+    "pacienteId": 4,
+    "tipo": "Ultrassonografia",
+    "data": "2026-02-25",
+    "resultado": "",
+    "status": "Agendado"
+  },
+  {
+    "id": 5,
+    "pacienteId": 5,
+    "tipo": "Ressonância Magnética",
+    "data": "2026-03-01",
+    "resultado": "",
+    "status": "Agendado"
+  },
+  {
+    "id": 6,
+    "pacienteId": 6,
+    "tipo": "Glicemia",
+    "data": "2026-02-10",
+    "resultado": "Elevada",
+    "status": "Concluído"
+  }
+],
+  "agenda": [
+  {
+    "id": 1,
+    "pacienteId": 1,
+    "medicoId": 2,
+    "data": "2026-03-01",
+    "hora": "09:00",
+    "status": "Agendada",
+    "observacoes": "Primeira consulta"
+  },
+  {
+    "id": 2,
+    "pacienteId": 3,
+    "medicoId": 1,
+    "data": "2026-03-01",
+    "hora": "10:30",
+    "status": "Confirmada",
+    "observacoes": "Retorno"
+  },
+  {
+    "id": 3,
+    "pacienteId": 2,
+    "medicoId": 4,
+    "data": "2026-03-02",
+    "hora": "08:00",
+    "status": "Agendada",
+    "observacoes": ""
+  },
+  {
+    "id": 4,
+    "pacienteId": 4,
+    "medicoId": 3,
+    "data": "2026-03-02",
+    "hora": "14:00",
+    "status": "Cancelada",
+    "observacoes": "Paciente remarcou"
+  },
+  {
+    "id": 5,
+    "pacienteId": 5,
+    "medicoId": 6,
+    "data": "2026-03-03",
+    "hora": "11:00",
+    "status": "Agendada",
+    "observacoes": "Avaliação neurológica"
+  },
+  {
+    "id": 6,
+    "pacienteId": 6,
+    "medicoId": 5,
+    "data": "2026-03-03",
+    "hora": "16:30",
+    "status": "Confirmada",
+    "observacoes": ""
+  }
+]
+}
