@@ -1,19 +1,45 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Card, Col, Container, Row } from 'react-bootstrap'
+import { Alert, Button, Card, Col, Container, Row } from 'react-bootstrap'
 import axios from 'axios'
+import { Link, useSearchParams } from "react-router-dom"
 
 const Medicos = () => {
 
     const [medicos, setMedicos] = useState([])
+    const [searchParams, setSearchParams] = useSearchParams()
+    const [mensagem, setMensagem] = useState("")
 
     useEffect(() => {
         carregarMedicos()
-    }, [])
+    const msg = searchParams.get('msg')
+
+        if (msg === "cadastrado") {
+            setMensagem("Médico cadastrado com sucesso!")
+        } else if (msg === "editado") {
+            setMensagem("Médico atualizado com sucesso!")
+        }
+
+        if (msg) {
+            setSearchParams({})
+        }
+
+    }, [searchParams, setSearchParams])
 
     const carregarMedicos = () => {
         axios.get("http://localhost:3000/medicos")
         .then(response => setMedicos(response.data))
         .catch(error => console.error("Erro ao carregar médicos: ", error))
+    }
+
+    const excluirMedico = (id) => {
+        if (window.confirm("Tem certeza que deseja excluir este médico?")) {
+            axios.delete(`http://localhost:3000/medicos/${id}`)
+            .then(() => {
+            setMensagem("Médico excluído com sucesso!")
+            carregarMedicos()
+        })
+        .catch(error => console.error("Erro ao excluir médico: ", error))
+        }
     }
 
   return (
@@ -25,11 +51,18 @@ const Medicos = () => {
                 <i className="bi bi-file-person me-2"></i>
                 Médicos
             </h2>
-            <Button variant="light">
+            <Button variant="light" as={Link} to="/cadastrar-medico">
                 <i className="bi bi-plus-lg me-2"></i>
                 Novo Médico
             </Button>
         </div>
+
+        {mensagem && (
+        <Alert variant="success" dismissible onClose={() => setMensagem('')}>
+          <i className="bi bi-check-circle me-2"></i>
+          {mensagem}
+        </Alert>
+        )}
 
         <Row className="g-4">
             {
@@ -68,6 +101,7 @@ const Medicos = () => {
                                         variant="outline-secondary"
                                         size="sm"
                                         className="flex-grow-1"
+                                        as={Link} to={`/editar-medico/${medico.id}`}
                                     >
                                         <i className="bi bi-pencil me-1"></i>
                                         Editar
@@ -76,6 +110,7 @@ const Medicos = () => {
                                         variant="outline-danger"
                                         size="sm"
                                         className="flex-grow-1"
+                                        onClick={() => excluirMedico(medico.id)}
                                     >
                                         <i className="bi bi-trash me-1"></i>
                                         Excluir

@@ -1,14 +1,34 @@
 import React from 'react'
 import { useState } from "react"
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap"
+import { Link, useNavigate } from "react-router-dom"
+import axios from "axios"
 
 const CadastrarMedico = () => {
+
+    const navigate = useNavigate()
 
     const [nome, setNome] = useState("")
     const [especialidade, setEspecialidade] = useState("")
     const [crm, setCrm] = useState("")
     const [telefone, setTelefone] = useState("")
     const [email, setEmail] = useState("")
+
+    const salvarMedico = (e) => {
+      e.preventDefault()
+
+        const novoMedico = {
+          nome,
+          especialidade,
+          crm,
+          telefone,
+          email
+        }
+
+        axios.post("http://localhost:3000/medicos", novoMedico)
+        .then(() => navigate("/medicos?msg=cadastrado"))
+        .catch(error => console.error("Erro ao cadastrar médico: ", error))
+    }
 
   return (
     <Container>
@@ -22,7 +42,7 @@ const CadastrarMedico = () => {
         </div>
         <Card className="shadow-sm border-0">
             <Card.Body className="p-4">
-                <Form>
+                <Form onSubmit={salvarMedico}>
                     <Row>
                         <Col md={6}>
                             <Form.Group className="mb-3">
@@ -90,6 +110,7 @@ const CadastrarMedico = () => {
                         <Button
                             variant="outline-secondary"
                             onClick={() => navigate("/medicos")}
+                            as={Link} to="/medicos"
                         >
                             <i className="bi bi-x-lg me-2"></i>
                             Cancelar
